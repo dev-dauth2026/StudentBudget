@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title%} Home | Student Budget {% endblock %}
+{% block content %}   
+    <!--****** header part div ends-->
+    <!--three extra header div starts-->
+    <section class="header-extradiv">
+      <div class="container my-lg-3 my-md-3 my-sm-3 ">
+        <h3 class="text-center mt-5 mx-auto">Recent Available House or Apartment Rooms</h3>
+        <hr class=" mx-5 px-5 mb-5 bg-secondary">
+        <div class="row ">
+          <div class="container">
+            {% if user.is_authenticated %}
+                             
+              {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Message!</strong> {{message}}.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                      
+                  {% endfor%}
+                {% endif %}
+           {% endif %}
+        
+       
+          </div>
+          
+            {% for house in newhouse %}
+              <div class="rent_house col-lg-4 col-md-4 col-sm-11 mb-lg-3 mb-md-3 mb-sm-5 ">
+                <div class="card  shadow " >
+                  <img src="{{house.img.url}}" class="card-img-top image-fluid" alt="..." >
+                  <div class="card-body">
+                    <div>
+                      <h5 class="card-title font-weight-bold">${{house.price}} </h5><a href="{{house.id}} " class="text-primary" value="{{house.id}}" name="details" style="float:right;">Details</a>
+                    </div>
+                    
+                    <p class="card-text">{{house.address}}</p>
+                    {% if user.is_authenticated %}
+                      <div class="justify-content-between d-flex">
+                        <a href="apply{{house.id}}" name="apply" class="btn btn-primary text-center ">Apply</a>
+                      <form method="POST" action="/">
+                        {% csrf_token %}
+                        <input hidden class="col-2"  type="text" name="favoritehouse" value="{{house.id}}">
+                        <button type="submit" class="btn btn-white float-right"><i class="fas fa-heart "  style="float:right; "  aria-hidden="true"></i></button>
+                      
+                      </form>
+                      </div>
+                   
+                    
+                    {% else %}
+                    <a href="/renter_login/" class="btn btn-primary text-center ">Apply</a>
+                    <a  class="like" href="/renter_login/">
+                      <i class="fas fa-heart "  style="float:right; "  aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <div class="pagination my-3 " >
+          <nav aria-label="Page navigation example " >
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+          
+        </div>
+        
+      </div>
+      
+    </section>
+  
+    <!--three extra header div ends-->
+    <!--footer-->
+
+{% endblock %}
+
+    

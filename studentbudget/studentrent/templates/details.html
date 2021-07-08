@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %} Details | Student Budget {% endblock %}
+
+{% block content %}
+  
+    <!-- Content Header (Page header) -->
+    <section class="content-header pt-5">
+      <div class="container-fluid">
+        <div class="row mb-2 ">
+          <div class="col-sm-6 py-5">
+            <h1 class="text-center font-weight-bold">Details</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                
+                 
+                  
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+               
+                
+                   
+                
+                  
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="{{obj.img.url}} " alt="User Image">
+                        <span class="username">
+                          <a href="#">Dauth Gurung</a>
+                        
+                        </span>
+                        <span class="description">{{obj.post_date}} </span>
+                      </div>
+                      <!-- /.user-block -->
+                       <h5>${{obj.price}} </h5>
+                      <div class="row mb-3">
+                        <div class="col-sm-6 mb-3">
+                          <img class="img-fluid" src="{{obj.img.url}} " alt="Photo">
+                        </div>
+                        <!-- /.col -->
+                       
+                        <p>
+                          Address:{{obj.address}} <br><br>
+                          Bond:$1000<br><br>
+                          Owner:Micheal Smith<br><br>
+                          Beds:{{obj.room}} <br><br>
+                          Available: {{obj.available}}<br><br>
+                          Description:{{obj.disc}}<br><br>
+                         
+                        <a href="index.html" type="button" class="btn btn-primary" style="float: right;">Inspection Booking</a>
+                           
+
+                        </p>
+
+                      
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+
+                      <p>
+                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a><sup><span class="badge badge-danger ">3</span></sup>
+                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a><sup><span class="badge badge-danger ">3</span></sup>
+                        <span class="float-right">
+                          <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                          </a>
+                        </span>
+                      </p>
+
+                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                    </div>
+                    <!-- /.post -->
+                  
+                
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+
+          
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Recent Blogs</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <ul>
+                  <li><a href="#">Renting Policy</a></li>
+                  <li><a href="#">Landlord Policy</a></li>
+                  <li> <a href="#">House Maintenance Policy</a></li>
+                  <li> <a href="#">Student Renting Services</a></li>
+                </ul>
+                
+                
+               
+               
+
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  {% endblock %}
